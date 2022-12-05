@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打卡</title>
+</head>
+
+<body>
+    <input type="text" placeholder="此处填写你的sessionId的值" id="token" />
+    <p></p>
+    <button onclick="fun()">点击</button>
+    <script>
+        function fun() {
+            //找到id为token的内容
+            var token = document.getElementById("token").value;
+            fetch('https://skl.hdu.edu.cn:443/api/punch', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Auth-Token': token
+                },
+                body: JSON.stringify({
+                    "currentLocation": "浙江省杭州市钱塘区",
+                    "healthCode": 0,
+                    "city": "杭州市",
+                    "districtAdcode": "330114",
+                    "province": "浙江省",
+                    "district": "钱塘区",
+                    "healthReport": 0,
+                    "currentLiving": 0,
+                    "last14days": 0
+                })
+            }).then(res => {
+                return res.json()
+            }).then(data => {
+                console.log(data)
+            })
+        }
+    </script>
+</body>
+
+</html>
