@@ -58,7 +58,7 @@
 
   ![image-20221205233604223](image/image-20221205233604223.png)
 
--   [下载网页](index.html)，当然，不愿意下载的你，也可以访问https://liangzilixueha.github.io/passcard.html，两者是一样的。
+- [下载网页](index.html)，当然，不愿意下载的你，也可以访问https://liangzilixueha.github.io/passcard.html    两者是一样的。
 
 - 你会发现孤零零的两个东西
 
