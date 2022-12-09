@@ -68,6 +68,65 @@
 
 ------
 
-## 超级碎碎念
+## 超级碎碎念(原理部分
 
-以后再写
+- 原理是甚么？
+
+  首先,是打卡的基本流程
+
+  - 通过钉钉获取你的定位
+  - 转化定位为城市名字
+  - 发送到服务器
+  - 当你查询的时候,从服务器拉取
+
+所以你发现,其实有用的是由发送服务器,所以我们通过抓包,知道了发送到服务器的api
+
+```api
+https://skl.hdu.edu.cn:443/api/punch
+```
+
+此api为POST类型
+
+请求体(Body),json类型
+
+```json
+{
+	"currentLocation":"浙江省杭州市钱塘区",
+	"healthCode":0,
+	"city":"杭州市",
+	"districtAdcode":"330114",
+	"province":"浙江省",
+	"district":"钱塘区",
+	"healthReport":0,
+	"currentLiving":0,
+	"last14days":0
+}
+```
+
+请求头(Headers)
+
+```
+X-Auth-Token:你的tokoen
+```
+
+用这两个,就可以向发服务器发送请求,你甚至可以发送浙江省华盛顿市!
+
+- 并补充内容
+
+  查询
+
+  ```
+  https://skl.hdu.edu.cn:443/api/punch/my
+  ```
+
+  GET方法
+  
+  请求头(Headers)
+
+```
+X-Auth-Token:你的tokoen
+```
+
+  你就可以获得json类型的返回.
+
+完结撒花*★,°*:.☆(￣▽￣)/$:*.°★* 。
